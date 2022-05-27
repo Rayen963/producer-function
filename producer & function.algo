@@ -1,0 +1,50 @@
+FUNCTION read_size () : INTIGER
+VAR
+   n : INTIGER;
+BEGIN
+   REPEAT
+       Read(n);
+    UNTIL (n <= 0 OR n > 50);
+    RETURN n ;
+END
+
+PRODUCER read_array(n: INTIGER, VAR, T:ARRAY_OF_INTIGER)
+VAR
+   i : INTIGER;
+BEGIN
+  FOR FROM 0 TO N-1 DO
+  read(T[i]);
+  END_FOR
+END
+
+PRODUCER sum_2_array(n: INTIGER, VAR, T:ARRAY_OF_INTIGER)
+VAR
+   i : INTIGER;
+BEGIN
+  FOR FROM 0 TO N-2 DO
+  T[i]= T[i] + T[i+1];
+  END_FOR
+END
+
+PRODUCER write_array(n: INTIGER,  T:ARRAY_OF_INTIGER)
+VAR
+   i : INTIGER;
+BEGIN
+  FOR FROM 0 TO N-1 DO
+  write(T[i]);
+  END_FOR
+END
+
+
+ALGORITHME array_sum_of_two_element
+VAR
+tab : ARRAY_OF INTIGER[50];
+i, n:INTIGER;
+BEGIN
+n := read_size();
+
+read_array(n,tab);
+
+sum_2_array(n,tab);
+
+write_array(n,tab);
